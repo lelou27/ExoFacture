@@ -13,7 +13,7 @@ namespace ExoFacture
             int i = 0;
             string reponse = "oui";
 
-            while ((reponse.ToLower() == "oui" || reponse.ToLower() == "o") && i <= 20)
+            while ((reponse.ToLower() == "oui" || reponse.ToLower() == "o") && i < 20)
             {
                 Console.WriteLine("Entrez la designation du produit");
                 tabDes[i] = Console.ReadLine();
@@ -26,8 +26,11 @@ namespace ExoFacture
 
                 tabMont[i] = tabPu[i] * tabQ[i];
 
-                Console.WriteLine("Voulez-vous entrer un autre produit ? (OUI / NON)");
-                reponse = Console.ReadLine();
+                if (i < 19)
+                {
+                    Console.WriteLine("Voulez-vous entrer un autre produit ? (OUI / NON)");
+                    reponse = Console.ReadLine();
+                }
 
                 i++;
             }
